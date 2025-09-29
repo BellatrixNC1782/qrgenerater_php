@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Free QR Code Generator | Create & Customize QR Codes Instantly</title>
     <meta name="description" content="Generate free QR codes instantly with our easy QR Code Generator. Enter a URL, customize colors, and download high-quality QR codes in seconds. No sign-up, no fees." />
-    <meta name="keywords" content="fake data generator, test data generator API, random user generator, dummy data API, generate fake names and emails, mock data API, fake JSON generator, sample user data generator, test data for developers, fake profile generator" />
+    <meta name="keywords" content="generate QR code from URL, free QR code creator tool, online QR code generator no sign up, custom color QR code, best free QR code generator, free QR code generator, QR code generator online, QR code maker free, create QR code instantly, customize QR code" />
     <meta name="author" content="QRGenerater" />
 
     <link rel="shortcut icon" href="{{ asset('public/images/fav.png') }}" type="image/x-icon">
