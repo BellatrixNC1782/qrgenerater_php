@@ -12,8 +12,8 @@
     </div>
 
     <!-- Hero Content -->
-    <div class="relative z-10 text-white px-12 max-w-3xl">
-        <h1 class="text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
+    <div class="relative z-10 text-white px-12 max-w-[30rem]">
+        <h1 class="text-4xl text-11 font-bold leading-tight drop-shadow-lg">
             QR Generator – Turn Any Link Into a QR Code Instantly
         </h1>
         <p class="mt-6">Generate clean, customizable QR codes in seconds.</p>
