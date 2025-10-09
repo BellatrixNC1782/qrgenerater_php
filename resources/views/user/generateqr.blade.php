@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Fake Person Generator')
-
 @section('content')
 
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -14,6 +12,7 @@
         padding: 20px 18px;
         backdrop-filter: blur(6px);
         box-shadow: 0 10px 25px rgba(2, 6, 23, .35);
+        margin: 50px 0px;
     }
 
     h1 {
@@ -132,15 +131,43 @@
         width: fit-content;
         float: right;
     }
-    
-    .container{
-        padding: 100px 0px;
+    .tab-active-btn{
+        background: #144c88;
     }
+    
+    .generate-btn{
+        background: #2b9320;
+    }
+    
 </style>
+<div class="max-w-xl mx-auto mt-10 mb-10">
+    <div class="bg-white border border-gray-200 rounded-xl">
+        <ul class="flex justify-center divide-x divide-gray-200" role="tablist">
+            <li class="flex-1">
+                <a href="{{ route('generateqr') }}"
+                   class="flex items-center justify-center w-full py-4 font-medium transition duration-200 border-b-2 border-r border-gray-200 tab-active-btn text-white first:rounded-l-xl">
+                    Smart Link QR
+                </a>
+            </li>
+            <li class="flex-1">
+                <a href="{{ route('generatecontactqr') }}"
+                   class="flex items-center justify-center w-full py-4 font-medium transition duration-200 border-b-2 border-r border-gray-200 text-gray-400 hover:text-blue-500">
+                    My Contact QR
+                </a>
+            </li>
+            <li class="flex-1">
+                <a href="{{ route('generateappqr') }}"
+                   class="flex items-center justify-center w-full py-4 font-medium transition duration-200 border-b-2 border-r border-gray-200 text-gray-400 hover:text-blue-500 last:rounded-r-xl">
+                    App Download QR
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
 
-<div class="container mx-auto px-12">
+<div class="container mx-auto">
     <section class="card my-12">
-        <h1>QR Code Generator</h1>
+        <h1>Smart Link QR Code Generator</h1>
         <p class="sub">Type any text or URL, choose color options and export your QR as PNG.</p>
         <div class="grid">
             <div class="left">
@@ -158,7 +185,7 @@
                 </div>
 
                 <div class="btns">
-                    <button id="generate">Generate</button>
+                    <button id="generate" class="generate-btn">Generate</button>
                     <button id="download" class="ghost">Download PNG</button>
                     <button id="clear" class="danger">Clear</button>
                 </div>

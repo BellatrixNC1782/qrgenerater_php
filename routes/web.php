@@ -8,6 +8,10 @@ Route::get('/', 'HomeController@home')->name('home');
 Route::get('privacypolicy', 'HomeController@privacypolicy')->name('privacypolicy');
 Route::get('termsofuse', 'HomeController@termsofuse')->name('termsofuse');
 Route::get('generateqr', 'HomeController@generateQr')->name('generateqr');
+Route::get('generatecontactqr', 'HomeController@generateContactQr')->name('generatecontactqr');
+Route::get('generateappqr', 'HomeController@generateAppQr')->name('generateappqr');
+Route::post('getappurl', 'HomeController@getAppUrl')->name('getappurl');
+Route::get('redirectstore/{store_id}', 'HomeController@redirectStore')->name('redirectstore');
 
 /*Route::get('/favicon-proxy', function (\Illuminate\Http\Request $request) {
     $domain = $request->query('domain');
