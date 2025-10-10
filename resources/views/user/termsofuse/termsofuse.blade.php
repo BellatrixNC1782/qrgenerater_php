@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-gray-100 py-10">
+<div class="bg-gray-100 py-10 my-[4rem]">
     <div class="max-w-5xl mx-auto px-4">
         <div class="bg-white shadow-xl rounded-2xl p-8 md:p-12">
 
@@ -19,10 +19,10 @@
             </p>
            
             <ul class="list-disc list-inside mt-3 text-gray-700 space-y-2">
-                <li><strong>Free Service:</strong> Our QR code generator is free for personal and business use.</li>
-                <li><strong>Proper Use:</strong> You are responsible for ensuring that the links you generate QR codes for do not contain harmful, illegal, or offensive content.</li>
-                <li><strong>No Warranty:</strong> We provide QR Generator “as is.” While we strive for accuracy and reliability, we are not liable for any issues that arise from the use of QR codes created with our tool.</li>
-                <li><strong>Intellectual Property:</strong> All branding, design, and content on QR Generator are owned by us and may not be copied or used without permission.</li>
+                <li><strong>Free Service:</strong> QR Generator is free for personal and business use.</li>
+                <li><strong>Proper Use:</strong> You are responsible for ensuring that your links are legal and safe.</li>
+                <li><strong>No Warranty:</strong> The service is provided “as is.” We strive for reliability but are not liable for any misuse.</li>
+                <li><strong>Intellectual Property:</strong> All branding, design, and content belong to QR Generator and may not be reused without permission.</li>
             </ul>
 
             

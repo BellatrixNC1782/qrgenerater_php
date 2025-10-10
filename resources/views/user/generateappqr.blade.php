@@ -14,7 +14,6 @@
         padding: 20px 18px;
         backdrop-filter: blur(6px);
         box-shadow: 0 10px 25px rgba(2, 6, 23, .35);
-        margin: 50px 0px;
     }
 
     h1 {
@@ -52,7 +51,7 @@
 
 
     input[type="text"],
-    input,
+    input[type="url"],
     textarea,
     select,
     input[type="number"],
@@ -167,9 +166,17 @@
         </ul>
     </div>
 </div>
+<section class="relative flex items-center justify-center text-center overflow-hidden w-full">
+    <!-- Hero Content -->
+    <div class="relative z-10 px-6 max-w-7xl mt-5">
+        <p class="mb-8 text-base md:text-lg text-gray-600">
+            Generate a single QR code that automatically detects the device and sends users to your app’s Play Store or App Store page — simple, smart, and instant.
+        </p>
+    </div>
+</section>
 
 <div class="container mx-auto">
-    <section class="card my-12">
+    <section class="card my-6">
         <h1>App Download QR Code Generator</h1>
         <p class="sub">Enter your platform URLs below and click Generate. The page will detect your device and open the correct link.</p>
         <div class="grid">
@@ -179,6 +186,16 @@
 
                 <label>iOS app (App Store URL):</label>
                 <input id="iosUrl" type="url" placeholder="https://apps.apple.com/app/id1234567890">
+                
+                <div class="row" style="margin-top:10px">
+                    <div>
+                        <label>Colors</label>
+                        <div class="inline">
+                            <input type="color" id="darkColor" value="#111827" title="Dark modules" />
+                            <input type="color" id="lightColor" value="#ffffff" title="Light background" />
+                        </div>
+                    </div>
+                </div>
 
                 <div class="btns">
                     <button id="generate" class="generate-btn">Generate</button>
@@ -205,6 +222,8 @@
         const btnGen = $('#generate');
         const btnDl = $('#download');
         const btnClear = $('#clear');
+        const darkColor = $('#darkColor');
+        const lightColor = $('#lightColor');
 
         function isAndroidPlayStoreUrl(url) {
             // More flexible Play Store URL validation allowing query parameters
@@ -264,8 +283,8 @@
                         text: text,
                         width: size,
                         height: size,
-                        colorDark: '#000000',
-                        colorLight: '#ffffff',
+                        colorDark: darkColor.value || '#000000',
+                        colorLight: lightColor.value || '#ffffff',
                         correctLevel: correctLevel
                     });
 

@@ -12,7 +12,6 @@
         padding: 20px 18px;
         backdrop-filter: blur(6px);
         box-shadow: 0 10px 25px rgba(2, 6, 23, .35);
-        margin: 50px 0px;
     }
 
     h1 {
@@ -48,7 +47,7 @@
     }
 
     input[type="text"],
-    input,
+    input.input-text,
     textarea,
     select,
     input[type="number"],
@@ -151,10 +150,12 @@
         border-radius: 8px;
         overflow: auto
     }
-    .tab-active-btn{
+
+    .tab-active-btn {
         background: #144c88;
     }
-    .generate-btn{
+
+    .generate-btn {
         background: #2b9320;
     }
 
@@ -180,9 +181,17 @@
         </ul>
     </div>
 </div>
+<section class="relative flex items-center justify-center text-center overflow-hidden w-full">
+    <!-- Hero Content -->
+    <div class="relative z-10 px-6 max-w-7xl mt-5">
+        <p class="mb-8 text-base md:text-lg text-gray-600">
+            Create a personalized QR code that instantly shares your contact details — one scan and your info is saved directly to their phone.
+        </p>
+    </div>
+</section>
 
 <div class="container mx-auto">
-    <section class="card my-12">
+    <section class="card my-6">
         <h1>My Contact QR Code Generator</h1>
         <p>Fill name, phone and email (and optional fields) then click <strong>Generate QR</strong>. The QR will encode a vCard that phones can add to Contacts.</p>
 
@@ -199,41 +208,51 @@
             <div>
 
                 <label for="fn">Full name</label>
-                <input id="fn" placeholder="e.g. John Doe" />
+                <input id="fn" class="input-text" placeholder="e.g. John Doe" />
             </div>
             <div>
                 <label for="tel">Phone</label>
-                <input id="tel" placeholder="+1 555 555 5555" />
+                <input id="tel" class="input-text" placeholder="+1 555 555 5555" />
             </div>
             <div>
                 <label for="email">Email</label>
-                <input id="email" placeholder="jane@example.com" />
+                <input id="email" class="input-text" placeholder="jane@example.com" />
             </div>
         </div>
 
         <div class="row">
             <div>
                 <label for="org">Organization</label>
-                <input id="org" placeholder="Company name (optional)" />
+                <input id="org" class="input-text" placeholder="Company name (optional)" />
             </div>
             <div>
                 <label for="title">Title</label>
-                <input id="title" placeholder="Job title (optional)" />
+                <input id="title" class="input-text" placeholder="Job title (optional)" />
             </div>
             <div>
                 <label for="url">Website</label>
-                <input id="url" placeholder="https://example.com (optional)" />
+                <input id="url" class="input-text" placeholder="https://example.com (optional)" />
             </div>
             <div>
                 <label for="adr">Address</label>
-                <input id="adr" placeholder="Street;City;Region;Postal;Country (optional)" />
+                <input id="adr" class="input-text" placeholder="Street;City;Region;Postal;Country (optional)" />
             </div>
         </div>
 
 
 
         <label for="note">Note</label>
-        <textarea id="note" rows="2" placeholder="Optional note"></textarea>
+        <textarea id="note" class="input-text" rows="2" placeholder="Optional note"></textarea>
+
+        <div class="row" style="margin-top:10px">
+            <div>
+                <label>Colors</label>
+                <div class="inline">
+                    <input type="color" id="darkColor" value="#111827" title="Dark modules" />
+                    <input type="color" id="lightColor" value="#ffffff" title="Light background" />
+                </div>
+            </div>
+        </div>
 
         <div id="errorBox" style="display:none;color:#b33335;border:1px solid #b33335;background:#fff5f6;margin-bottom:14px;padding:8px 12px;border-radius:6px;min-height:25px;text-align:left;"></div>
 
@@ -327,8 +346,11 @@
     }
 
     function generate() {
+        const $ = (sel) => document.querySelector(sel);
         const data = getData()
         const fmt = el('format').value
+        const darkColor = $('#darkColor');
+        const lightColor = $('#lightColor');
         let text = ''
         if (fmt === 'vcard') text = makeVCard(data)
         else text = makeMeCard(data)
@@ -344,8 +366,8 @@
             text: text,
             width: 260,
             height: 260,
-            colorDark: '#000000',
-            colorLight: '#ffffff',
+            colorDark: darkColor.value || '#000000',
+            colorLight: lightColor.value || '#ffffff',
             correctLevel: QRCode.CorrectLevel.H
         })
     }
@@ -386,20 +408,20 @@
 
     document.getElementById('generate').onclick = function(e) {
         e.preventDefault();
-//        if (validateContactForm()) generate();
+        //        if (validateContactForm()) generate();
         generate();
     };
     document.getElementById('downloadPng').onclick = function(e) {
         e.preventDefault();
-//        if (validateContactForm()) downloadPNG();
+        //        if (validateContactForm()) downloadPNG();
         downloadPNG();
     };
     document.getElementById('copyText').onclick = function(e) {
         e.preventDefault();
-//        if (validateContactForm()) {
-            const txt = el('encoded').textContent;
-            navigator.clipboard.writeText(txt);
-//        }
+        //        if (validateContactForm()) {
+        const txt = el('encoded').textContent;
+        navigator.clipboard.writeText(txt);
+        //        }
     };
 
 </script>

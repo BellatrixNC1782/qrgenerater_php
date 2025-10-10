@@ -24,15 +24,17 @@
                 <a href="{{ route('home') }}" class="transition {{ request()->is('/') ? 'text-yellow-400 font-semibold border-b-2 border-yellow-400' : '' }}">
                     Home
                 </a>
-
+                <a href="{{ route('home') }}#features" class="transition {{ request()->is('/') && request()->has('features') ? 'text-yellow-400 font-semibold border-b-2 border-yellow-400' : '' }}">
+                    Features
+                </a>
                 <a href="{{ route('home') }}#about" class="transition {{ request()->is('/') && request()->has('about') ? 'text-yellow-400 font-semibold border-b-2 border-yellow-400' : '' }}">
                     About Us
                 </a>
-                <a href="{{ route('home') }}#contact" class="transition {{ request()->is('/') && request()->has('about') ? 'text-yellow-400 font-semibold border-b-2 border-yellow-400' : '' }}">
+                <a href="{{ route('home') }}#contact" class="transition {{ request()->is('/') && request()->has('contact') ? 'text-yellow-400 font-semibold border-b-2 border-yellow-400' : '' }}">
                     Contact Us
                 </a>
 
-                <a href="{{ route('generateqr') }}" class="transition {{ request()->routeIs('fake.profile') ? 'text-yellow-400 font-semibold border-b-2 border-yellow-400' : '' }}">
+                <a href="{{ route('generateqr') }}" class="transition {{ (request()->routeIs('generateqr') || request()->routeIs('generatecontactqr') || request()->routeIs('generateappqr')) ? 'text-yellow-400 font-semibold border-b-2 border-yellow-400' : '' }}">
                     Generate QR
                 </a>
             </nav>

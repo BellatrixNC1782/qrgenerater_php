@@ -12,7 +12,6 @@
         padding: 20px 18px;
         backdrop-filter: blur(6px);
         box-shadow: 0 10px 25px rgba(2, 6, 23, .35);
-        margin: 50px 0px;
     }
 
     h1 {
@@ -164,9 +163,17 @@
         </ul>
     </div>
 </div>
+<section class="relative flex items-center justify-center text-center overflow-hidden w-full">
+    <!-- Hero Content -->
+    <div class="relative z-10 px-6 max-w-7xl mt-5">
+        <p class="mb-8 text-base md:text-lg text-gray-600">
+            Turn any link into a powerful, scannable QR code — perfect for websites, promotions, and campaigns that connect instantly.
+        </p>
+    </div>
+</section>
 
 <div class="container mx-auto">
-    <section class="card my-12">
+    <section class="card my-6">
         <h1>Smart Link QR Code Generator</h1>
         <p class="sub">Type any text or URL, choose color options and export your QR as PNG.</p>
         <div class="grid">
