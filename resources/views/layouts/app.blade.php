@@ -26,9 +26,14 @@
 </head>
 
 <body class="bg-gray-100 min-h-screen">
+    <?php $current_route = Route::currentRouteName();?>
     <header class="bg-[#144C88] text-white py-4 shadow">
         <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            @if($current_route != 'home')
+            <h1 class="text-xl font-bold"><a href="{{ route('home') }}">QR Generator</a></h1>
+            @else
             <h1 class="text-xl font-bold">QR Generator</h1>
+            @endif
 
             <nav class="hidden md:flex space-x-6 font-medium">
                 <a href="{{ route('home') }}" class="transition {{ request()->is('/') ? 'text-yellow-400 font-semibold border-b-2 border-yellow-400' : '' }}">
