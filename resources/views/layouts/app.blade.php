@@ -8,10 +8,20 @@
     <meta name="keywords" content="generate QR code from URL, free QR code creator tool, online QR code generator no sign up, custom color QR code, best free QR code generator, free QR code generator, QR code generator online, QR code maker free, create QR code instantly, customize QR code" />
     <meta name="author" content="QRGenerater" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="google-site-verification" content="zZAd5nwRLt1NMyYzJLO75qZ99sJqPczOK6dpCu0e6p8" />
 
     <link rel="shortcut icon" href="{{ asset('public/images/fav.png') }}" type="image/x-icon">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J0T3ELPKNW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J0T3ELPKNW');
+    </script>
 
 </head>
 
