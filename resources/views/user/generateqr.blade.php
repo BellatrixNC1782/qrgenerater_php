@@ -190,6 +190,10 @@
                         </div>
                     </div>
                 </div>
+                <div style="margin-top:14px;">
+                    <input type="checkbox" style="vertical-align: middle;" id="addLogo">
+                    <label for="addLogo" style="display:inline">Add logo to QR</label>
+                </div>
 
                 <div class="btns">
                     <button id="generate" class="generate-btn">Generate</button>
@@ -217,6 +221,7 @@
         const btnGen = $('#generate');
         const btnDl = $('#download');
         const btnClear = $('#clear');
+        const checkboxLogo = $('#addLogo');
 
         // --- Get favicon from URL ---
         function getAutoLogoURL(text) {
@@ -239,101 +244,104 @@
 
 
         function makeQR() {
-            const text = fieldText.value.trim();
-            if (!text) {
-                out.innerHTML = '<span style="color:#94a3b8">Enter text above and click Generate</span>';
-                return;
-            }
+    const text = fieldText.value.trim();
+    if (!text) {
+        out.innerHTML = '<span style="color:#94a3b8">Enter text above and click Generate</span>';
+        return;
+    }
 
-            const size = 320;
-            const correctLevel = QRCode.CorrectLevel.H;
-            const margin = 2;
+    const size = 320;
+    const correctLevel = QRCode.CorrectLevel.H;
+    const margin = 2;
 
-            out.innerHTML = '';
-            const qr = new QRCode(out, {
-                text,
-                width: size,
-                height: size,
-                colorDark: darkColor.value || '#000000',
-                colorLight: lightColor.value || '#ffffff',
-                correctLevel,
-            });
+    out.innerHTML = '';
+    const qr = new QRCode(out, {
+        text,
+        width: size,
+        height: size,
+        colorDark: darkColor.value || '#000000',
+        colorLight: lightColor.value || '#ffffff',
+        correctLevel,
+    });
 
-            out.style.padding = margin + 'px';
-            out.style.background = lightColor.value || '#ffffff';
+    out.style.padding = margin + 'px';
+    out.style.background = lightColor.value || '#ffffff';
 
-            setTimeout(() => {
-                const imgTag = out.querySelector('img');
-                if (!imgTag) return;
+    setTimeout(() => {
+        const imgTag = out.querySelector('img');
+        if (!imgTag) return;
 
-                const canvas = document.createElement('canvas');
-                canvas.width = size;
-                canvas.height = size;
-                const ctx = canvas.getContext('2d');
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d');
 
-                const qrImg = new Image();
-                qrImg.onload = () => {
-                    ctx.drawImage(qrImg, 0, 0, size, size);
+        const qrImg = new Image();
+        qrImg.onload = () => {
+            ctx.drawImage(qrImg, 0, 0, size, size);
 
-                    // --- Try auto favicon ---
-                    const logoUrl = getAutoLogoURL(text);
-                    
-                    if (logoUrl) {
-                        const logo = new Image();
-                        logo.crossOrigin = "anonymous";
-                        logo.onload = () => {
-                            const logoSize = size * 0.20;
-                            const padding = 8;
-                            const centerX = size / 2;
-                            const centerY = size / 2;
-
-                            // White background
-                            ctx.beginPath();
-                            ctx.arc(centerX, centerY, logoSize / 2 + padding, 0, Math.PI * 2);
-                            ctx.fillStyle = lightColor.value || '#ffffff';
-                            ctx.fill();
-
-                            // Clip + draw
-                            ctx.save();
-                            ctx.beginPath();
-                            ctx.arc(centerX, centerY, logoSize / 2, 0, Math.PI * 2);
-                            ctx.clip();
-                            ctx.drawImage(
-                                logo,
-                                centerX - logoSize / 2,
-                                centerY - logoSize / 2,
-                                logoSize,
-                                logoSize
-                            );
-                            ctx.restore();
-                        };
-                        logo.src = logoUrl;
-                    } else {
-                        // --- Fallback: Letter ---
-                        const logoText = text[0].toUpperCase();
-                        const logoSize = size * 0.18;
+            // ---- CHECKBOX HANDLING ----
+            if (checkboxLogo.checked) {
+                // --- Try auto favicon ---
+                const logoUrl = getAutoLogoURL(text);
+                if (logoUrl) {
+                    const logo = new Image();
+                    logo.crossOrigin = "anonymous";
+                    logo.onload = () => {
+                        const logoSize = size * 0.20;
                         const padding = 8;
                         const centerX = size / 2;
                         const centerY = size / 2;
 
+                        // White background
                         ctx.beginPath();
                         ctx.arc(centerX, centerY, logoSize / 2 + padding, 0, Math.PI * 2);
                         ctx.fillStyle = lightColor.value || '#ffffff';
                         ctx.fill();
 
-                        ctx.fillStyle = darkColor.value || '#000000';
-                        ctx.font = `${logoSize * 0.6}px Arial`;
-                        ctx.textAlign = "center";
-                        ctx.textBaseline = "middle";
-                        ctx.fillText(logoText, centerX, centerY);
-                    }
-                };
-                qrImg.src = imgTag.src;
+                        // Clip + draw
+                        ctx.save();
+                        ctx.beginPath();
+                        ctx.arc(centerX, centerY, logoSize / 2, 0, Math.PI * 2);
+                        ctx.clip();
+                        ctx.drawImage(
+                            logo,
+                            centerX - logoSize / 2,
+                            centerY - logoSize / 2,
+                            logoSize,
+                            logoSize
+                        );
+                        ctx.restore();
+                    };
+                    logo.src = logoUrl;
+                } else {
+                    // --- Fallback: Letter ---
+                    const logoText = text[0].toUpperCase();
+                    const logoSize = size * 0.18;
+                    const padding = 8;
+                    const centerX = size / 2;
+                    const centerY = size / 2;
 
-                out.innerHTML = '';
-                out.appendChild(canvas);
-            }, 300);
-        }
+                    ctx.beginPath();
+                    ctx.arc(centerX, centerY, logoSize / 2 + padding, 0, Math.PI * 2);
+                    ctx.fillStyle = lightColor.value || '#ffffff';
+                    ctx.fill();
+
+                    ctx.fillStyle = darkColor.value || '#000000';
+                    ctx.font = `${logoSize * 0.6}px Arial`;
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    ctx.fillText(logoText, centerX, centerY);
+                }
+            }
+        };
+        qrImg.src = imgTag.src;
+
+        out.innerHTML = '';
+        out.appendChild(canvas);
+    }, 300);
+}
+
 
         function downloadPNG() {
             const canvas = out.querySelector('canvas');
