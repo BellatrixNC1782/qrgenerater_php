@@ -26,10 +26,10 @@
     <!-- Hero Content -->
     <div class="relative z-10 px-6 max-w-7xl mt-5">
         <h2 class="mb-8 text-[#144C88]" style="font-size: 25px;">
-            Fast, simple, and free QR code generation — now smarter than ever.
+            Fast, simple, and free QR code generation - now smarter than ever.
         </h2>
         <p class="mb-8 text-base md:text-lg text-gray-600">
-            Whether you’re a student, professional, or business owner, QR Generator helps you create and customize QR codes for any purpose. No sign-up, no hidden fees — just fast, reliable, and secure QR generation your way.
+            Whether you’re a student, professional, or business owner, QR Generator helps you create and customize QR codes for any purpose. No sign-up, no hidden fees - just fast, reliable, and secure QR generation your way.
         </p>
     </div>
 </section>
@@ -72,7 +72,7 @@
                 <div class="text-4xl mb-3">📱</div>
                 <h3 class="font-bold text-xl text-[#144C88] mb-2">App Download QR</h3>
                 <p class="text-gray-600 mb-4">
-                    Create a single QR code for your app that automatically detects the user’s device and redirects them to the correct store — Play Store for Android and App Store for iOS.<br>
+                    Create a single QR code for your app that automatically detects the user’s device and redirects them to the correct store - Play Store for Android and App Store for iOS.<br>
                     Perfect for promoting mobile apps effortlessly.
                 </p>
                 <a href="{{ route('generateappqr') }}" class="mt-auto px-6 py-2 bg-[#BF3639] text-white font-semibold rounded-xl shadow hover:bg-red-700 transition">
@@ -95,7 +95,7 @@
         <div class="order-2 md:order-2 text-left">
             <h2 class="text-3xl md:text-4xl font-bold text-[#144C88] mb-4">📖 About Us</h2>
             <p class="text-gray-600 text-lg leading-relaxed">
-                At QR Generator, our mission is simple — make QR code creation quick, easy, and customizable for everyone.
+                At QR Generator, our mission is simple - make QR code creation quick, easy, and customizable for everyone.
                 <br><br>
                 We believe not all QR codes should look the same, which is why we let you personalize colors, styles, and smart behavior to fit your brand or purpose.
                 <br><br>

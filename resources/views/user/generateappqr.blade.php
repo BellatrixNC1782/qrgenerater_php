@@ -309,7 +309,8 @@
         }
 
         function clearAll() {
-            fieldText.value = '';
+            androidUrl.value = '';
+            iosUrl.value = '';
             out.innerHTML = '<span style="color:#94a3b8">Cleared. Enter links above and click Generate</span>';
         }
 
