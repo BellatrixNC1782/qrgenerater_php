@@ -181,10 +181,10 @@
         <p class="sub">Enter your platform URLs below and click Generate. The page will detect your device and open the correct link.</p>
         <div class="grid">
             <div class="left">
-                <label>Android app (Play Store URL):</label>
+                <label>Android app:</label>
                 <input id="androidUrl" type="url" placeholder="https://play.google.com/store/apps/details?id=com.example.app">
 
-                <label>iOS app (App Store URL):</label>
+                <label>iOS app:</label>
                 <input id="iosUrl" type="url" placeholder="https://apps.apple.com/app/id1234567890">
                 
                 <div class="row" style="margin-top:10px">
@@ -244,7 +244,7 @@
         function makeQR() {
             const androidURL = androidUrl.value.trim();
             const iosURL = iosUrl.value.trim();
-            if (!androidURL || !iosURL) {
+            /*if (!androidURL || !iosURL) {
                 out.innerHTML = '<span style="color:#94a3b8">Enter links above and click Generate</span>';
                 return;
             }
@@ -257,7 +257,7 @@
             if (!isIosAppStoreUrl(iosURL)) {
                 out.innerHTML = '<span style="color:#b33335">Invalid iOS App Store URL.</span>';
                 return;
-            }
+            }*/
 
             // AJAX to get text for QR code
             fetch('{{ route("getappurl") }}', {
