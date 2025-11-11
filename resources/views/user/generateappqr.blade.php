@@ -244,13 +244,13 @@
         function makeQR() {
             const androidURL = androidUrl.value.trim();
             const iosURL = iosUrl.value.trim();
-            /*if (!androidURL || !iosURL) {
+            if (!androidURL || !iosURL) {
                 out.innerHTML = '<span style="color:#94a3b8">Enter links above and click Generate</span>';
                 return;
             }
 
             // Validate URLs
-            if (!isAndroidPlayStoreUrl(androidURL)) {
+            /*if (!isAndroidPlayStoreUrl(androidURL)) {
                 out.innerHTML = '<span style="color:#b33335">Invalid Android Play Store URL.</span>';
                 return;
             }
