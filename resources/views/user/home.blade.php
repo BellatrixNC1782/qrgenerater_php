@@ -102,7 +102,7 @@
                 Built with simplicity and performance in mind, QR Generator is:
             </p>
             <br>
-            <ul class="list-disc pl-8">
+            <ul class="text-gray-600 list-disc pl-8">
                 <li><strong>Fast:</strong> Enter your details and generate instantly.</li>
                 <li><strong>Customizable:</strong> Choose colors and designs that match your theme.</li>
                 <li><strong>Free Forever:</strong> No subscriptions, no hidden costs.</li>
