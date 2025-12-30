@@ -67,6 +67,18 @@
 
 
     <main class="">
+        <center>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3319655270773353"
+                 data-ad-slot="7754146757"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true">
+             </ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </center>
         @yield('content')
     </main>
 
