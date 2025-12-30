@@ -12,6 +12,9 @@
 
     <link rel="shortcut icon" href="{{ asset('public/images/fav.png') }}" type="image/x-icon">
 
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3319655270773353"
+     crossorigin="anonymous"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J0T3ELPKNW"></script>
